@@ -3,6 +3,7 @@ INSERT INTO cinema.cinemas(id, name, active)
 INSERT INTO cinema.cinemas(id, name, active)
 	VALUES ('d215b5f8-0249-4dc5-89a3-51fd148cfb46', 'cinema_2', FALSE);
 
+
 INSERT INTO cinema.movies(id, name, price, available)
 	VALUES ('d215b5f8-0249-4dc5-89a3-51fd148cfb47', 'movie_1', 25.00, FALSE);
 INSERT INTO cinema.movies(id, name, price, available)

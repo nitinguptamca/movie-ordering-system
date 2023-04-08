@@ -50,6 +50,7 @@ CREATE TABLE cinema.cinema_movies
     CONSTRAINT cinema_movies_pkey PRIMARY KEY (id)
 );
 
+
 ALTER TABLE cinema.cinema_movies
     ADD CONSTRAINT "FK_cinema_ID" FOREIGN KEY (cinema_id)
     REFERENCES cinema.cinemas (id) MATCH SIMPLE

@@ -1,6 +1,7 @@
 server:
   port: 8183
 
+
 logging:
   level:
     com.movie.ordering.system: DEBUG
