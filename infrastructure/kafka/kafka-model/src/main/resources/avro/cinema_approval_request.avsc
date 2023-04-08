@@ -1,0 +1,73 @@
+{
+    "namespace": "com.movie.ordering.system.kafka.order.avro.model",
+    "type": "record",
+    "name": "CinemaApprovalRequestAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "cinemaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "orderId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "cinemaOrderStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "CinemaOrderStatus",
+                  "symbols": ["PAID"]
+            }
+        },
+        {
+            "name": "movies",
+            "type": {
+                "type": "array",
+                "items":{
+                  "name":"Movie",
+                  "type":"record",
+                  "fields":[
+                    {"name":"id", "type": "string", "logicalType": "uuid"},
+                    {"name":"quantity", "type": "int"}
+                   ]
+               }
+            }
+        },
+        {
+            "name": "price",
+            "type": {
+                "type": "bytes",
+                "logicalType": "decimal",
+                "precision": 10,
+                "scale": 2
+            }
+        },
+        {
+            "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        }
+    ]
+}

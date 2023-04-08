@@ -1,0 +1,59 @@
+{
+    "namespace": "com.movie.ordering.system.kafka.order.avro.model",
+    "type": "record",
+    "name": "CinemaApprovalResponseAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "cinemaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "orderId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        },
+        {
+            "name": "orderApprovalStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "OrderApprovalStatus",
+                  "symbols": ["APPROVED", "REJECTED"]
+               }
+        },
+        {
+            "name": "failureMessages",
+            "type": {
+                "type": "array",
+                "items":{
+                  "type":"string"
+               }
+            }
+        }
+    ]
+}
