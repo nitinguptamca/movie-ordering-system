@@ -1,0 +1,49 @@
+0. need to create folder 
+     volumes/kafka. inside docker-compose folder
+     volumes/zookeeper/broker-1
+     volumes/zookeeper/broker-2
+     volumes/zookeeper/broker-3
+
+1 . start docker.
+2. mvn clean install
+3. docker-compose -f common.yml -f zookeeper.yml up
+4.  docker-compose -f common.yml -f kafka_cluster.yml up
+5. docker-compose -f common.yml -f init_kafka.yml up
+6. docker-compose -f postgres.yml
+7. offer-service/offer-container/.   mvn spring-boot:run
+8. payment-service/payment-container/.   mvn spring-boot:run
+9. customer-service/   mvn spring-boot:run
+10.  cinema-service/cinema-container    mvn spring-boot:run
+----------------------------------------
+order movie post request(create order )-->Pending state
+http://localhost:8181/orders
+
+{
+  "customerId": "d215b5f8-0249-4dc5-89a3-51fd148cfb41",
+  "cinemaId": "d215b5f8-0249-4dc5-89a3-51fd148cfb45",
+  "address": {
+    "street": "street_1",
+    "postalCode": "1000AB",
+    "city": "Amsterdam"
+  },
+  "price": 200.00,
+  "items": [
+    {
+      "movieId": "d215b5f8-0249-4dc5-89a3-51fd148cfb48",
+      "quantity": 1,
+      "price": 50.00,
+      "subTotal": 50.00
+    },
+    {
+      "movieId": "d215b5f8-0249-4dc5-89a3-51fd148cfb48",
+      "quantity": 3,
+      "price": 50.00,
+      "subTotal": 150.00
+    }
+  ]
+}
+response
+
+--------------
+git movie confirmaition is movie Booked or not (Pending ,approval state.)
+http://localhost:8181/orders/81029ced-363f-42dd-8b02-039e72444220
